@@ -1,0 +1,25 @@
+table.cool_table {
+   paddding: 0;
+   margin: 0;
+   width: 100%;
+}
+
+table.cool_table td, table.cool_table th {
+    padding: 12px;
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #e9ecef;
+    border-top-color: rgb(233, 236, 239);
+}
+
+table.cool_table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #e9ecef;
+    border-bottom-color: rgb(233, 236, 239);
+}
+
+table.cool_table .thead-dark th {
+    color: #fff;
+    background-color: #212529;
+    border-color: #32383e;
+}

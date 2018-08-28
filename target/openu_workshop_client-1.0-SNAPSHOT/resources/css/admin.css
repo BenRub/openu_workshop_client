@@ -85,3 +85,11 @@ div.contentPage {
     min-height: 500px;
 }
 
+div.box {
+    background: white;
+    border: 1px solid rgba(0,0,0,.0625); 
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+}
+

@@ -5,12 +5,12 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>AdminPanel - #{title}</title>
         <h:outputStylesheet library="css" name="admin.css"/>
+        <h:outputStylesheet library="css" name="cooltable.css"/>
     </h:head>
     
-    <h:body>   
-        <ui:composition>
+    <h:body>
             <div class="wrapper group">
                 <div class="menu">
                     <div class="menuHeader">
@@ -27,11 +27,12 @@
                         <span>Hello, </span> 
                     </div>         
                     <div class="contentPage">
-                        sds
+                        <ui:insert name = "content" >
+                            Hi
+                        </ui:insert> 
                     </div>
                 </div>            
             </div>
-        </ui:composition>
     </h:body>
 </html>
 
