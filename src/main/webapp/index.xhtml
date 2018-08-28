@@ -6,12 +6,39 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="admin.css"/>
     </h:head>
     
     <h:body>
-        <h1>Welcom, please login or create an account </h1>
-        <ui:include src="/pages/menu.xhtml" />
-        Hello             
+        
+        
+        <div class="wrapper group">
+            <div class="menu">
+                <div class="menuHeader">
+                   <h5 class="logo-text">Admin</h5> 
+                </div>
+                <div class="menuContent">
+                    <h:form>
+                        <h:commandLink value="Products" class="productsIcon" action="/pages/products?faces-redirect=true" />
+                    </h:form>    
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentHeader">
+                    <span>Hello, </span> 
+                </div>         
+                <div class="contentPage">
+                    sds
+                </div>
+            </div>            
+        </div>
+        
+        
+        
+        
+        <!--
+        <ui:include src="/pages/menu.xhtml" /> 
+         -->
     </h:body>
 </html>
 
