@@ -9,23 +9,31 @@
                 <ui:define name = "content">
                     
                     <div class="box">
-                        
+                        <h:form>
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
+                                    <th></th>
                                 </tr>                            
                             </thead>
                             <tbody>
                                 <ui:repeat value="#{productsBean.products}" var="product">
                                     <tr>
                                         <td>#{product.id}</td>
-                                        <td>#{product.title}</td>
+                                        <td>
+                                            <h:inputText value="#{product.title}" required="true" requiredMessage="required" />
+                                        </td>
+                                        <td>
+                                            <h:commandButton value="Update" action="#{productsBean.test(product)}" />
+
+                                        </td>
                                     </tr>
                                 </ui:repeat>
                             </tbody>
                         </table> 
+                        </h:form>
                     
                     </div>
                 </ui:define>

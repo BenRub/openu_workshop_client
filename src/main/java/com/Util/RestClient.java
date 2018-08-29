@@ -33,14 +33,22 @@ public class RestClient {
     }
     
     public String Post(String address, Object content) {
-        try {
+        return Change(address, content, "POST");
+    }
+    
+    public String Put(String address, Object content) {
+        return Change(address, content, "PUT");
+    }
+    
+    private String Change(String address, Object content, String method) {
+         try {
             ObjectMapper mapper = new ObjectMapper();  
             String body = mapper.writeValueAsString(content);
-            return SendRequest(address, "POST", body);
+            return SendRequest(address, method, body);
         } catch (IOException e) {
             e.printStackTrace();
 	}
-        return "";
+        return "";       
     }
         
     private String SendRequest(String address, String method, String body) {
@@ -53,12 +61,13 @@ public class RestClient {
             
             if (body != null) {
                 conn.setRequestProperty("Content-Type", "application/json");
+                conn.setDoOutput(true);
                 OutputStream os = conn.getOutputStream();
 		os.write(body.getBytes());
 		os.flush();
             }
             
-            if (conn.getResponseCode() != 200) {
+            if (conn.getResponseCode() != 200 && conn.getResponseCode() != 204) {
 		throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
             }
 
