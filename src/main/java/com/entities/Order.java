@@ -17,4 +17,10 @@ public class Order {
     public int UserId;
     public Map<Integer, Integer> ProductsToAmount;
     public boolean Delivered;
+    
+    public int getId() { return Id; }
+    
+    public int getUserId() { return UserId; }
+    
+    public boolean getDelivered() { return Delivered; } 
 }

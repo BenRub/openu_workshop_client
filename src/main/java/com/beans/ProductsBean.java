@@ -4,9 +4,10 @@ import com.Util.RestClient;
 import com.entities.Product;
 import com.mycompany.openu_workshop_client.Config;
 import java.io.IOException;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +16,19 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class ProductsBean 
 {
-    private Product[] products;
-    private String productsAddsress;
+    private final Product[] products;
+    private final String categoryProductsAddsress;
+    private final String productsAddsress;  
+    private final String categoryId; 
+    
     public ProductsBean() 
     {
-        productsAddsress = Config.Host + "Products/";
+        Map<String, String> queryParams = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();   
+        categoryId = queryParams.get("category");
+        categoryProductsAddsress = Config.Host + "categories/" + categoryId + "/products/";
+        productsAddsress = Config.Host + "products/";
         RestClient client = new RestClient();
-        products = client.Get(productsAddsress, Product[].class);
+        products = client.Get(categoryProductsAddsress, Product[].class);
     }
     
     public Product[] getProducts() 
@@ -31,7 +38,7 @@ public class ProductsBean
     
     public void reload() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI() + "?category=" + categoryId);
 }
     
     public void test(Product product) throws IOException {

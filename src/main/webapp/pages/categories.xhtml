@@ -5,33 +5,34 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
         <ui:composition template = "../common.xhtml">
-                <ui:param name = "title" value = "Products" />
+                <ui:param name = "title" value = "Categories" />
                 <ui:define name = "content">
                     
                     <div class="box">
                         <h:form>
-                        <input type="hidden" name="category" value="#{param.category}" />
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
-                                    <th>Picture</th>
+                                    <th>Products</th>
                                     <th>Update</th>
                                 </tr>                            
                             </thead>
                             <tbody>
-                                <ui:repeat value="#{productsBean.products}" var="product">
+                                <ui:repeat value="#{categoriesBean.categories}" var="category">
                                     <tr>
-                                        <td>#{product.id}</td>
+                                        <td>#{category.id}</td>
                                         <td>
-                                            <h:inputText value="#{product.title}" required="true" requiredMessage="required" />
+                                            <h:inputText value="#{category.name}" required="true" requiredMessage="required" />
                                         </td>
                                         <td>
-                                            <h:inputText value="#{product.picture}" required="true" requiredMessage="required" />
+                                            <h:link value="Products" outcome="/pages/products?faces-redirect=true">
+                                                <f:param name="category" value="#{category.id}" />
+                                            </h:link>                                               
                                         </td>
                                         <td>
-                                            <h:commandButton value="Update" action="#{productsBean.test(product)}" />
+                                            <h:commandButton value="Update" action="#{categoriesBean.update(category)}" />
                                         </td>
                                     </tr>
                                 </ui:repeat>

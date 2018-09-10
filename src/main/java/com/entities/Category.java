@@ -9,16 +9,13 @@ package com.entities;
  *
  * @author ben
  */
-public class Product {
+public class Category {
     public int Id; 
-    public String Title; 
-    public String Picture;  
+    public String Name;  
     
     public int getId() { return Id; }
     
-    public String getTitle() { return Title; }      
-    public void setTitle(String title) { Title = title; } 
+    public String getName() { return Name; }  
     
-    public String getPicture() { return Picture; }      
-    public void setPicture(String picture) { Picture = picture; }     
+    public void setName(String name) { Name = name; }    
 }

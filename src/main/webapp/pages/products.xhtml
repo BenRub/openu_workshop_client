@@ -10,12 +10,14 @@
                     
                     <div class="box">
                         <h:form>
+                        <input type="hidden" name="category" value="#{param.category}" />
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
-                                    <th></th>
+                                    <th>Picture</th>
+                                    <th>Update</th>
                                 </tr>                            
                             </thead>
                             <tbody>
@@ -26,8 +28,10 @@
                                             <h:inputText value="#{product.title}" required="true" requiredMessage="required" />
                                         </td>
                                         <td>
+                                            <h:inputText value="#{product.picture}" required="true" requiredMessage="required" />
+                                        </td>
+                                        <td>
                                             <h:commandButton value="Update" action="#{productsBean.test(product)}" />
-
                                         </td>
                                     </tr>
                                 </ui:repeat>
