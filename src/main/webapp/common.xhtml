@@ -7,6 +7,7 @@
     <h:head>
         <title>AdminPanel - #{title}</title>
         <h:outputStylesheet library="css" name="admin.css"/>
+        <h:outputStylesheet library="css" name="icons.css"/>
         <h:outputStylesheet library="css" name="cooltable.css"/>
     </h:head>
     
@@ -18,7 +19,8 @@
                     </div>
                     <div class="menuContent">
                         <h:link value="Categories" class="productsIcon" outcome="/pages/categories?faces-redirect=true" />   
-                        <h:link value="Orders" class="ordersIcon" outcome="/pages/orders?faces-redirect=true" />   
+                        <h:link value="Orders" class="ordersIcon" outcome="/pages/orders?faces-redirect=true" />      
+                        <h:link value="Users" class="ordersIcon" outcome="/pages/users?faces-redirect=true" />   
                     </div>
                 </div>
                 <div class="content">

@@ -16,7 +16,14 @@ public class User {
     public String Phone; 
     public String Address;   
     
+    public int getId() { return Id; }
+    
     public String getUsername() { return Username; } 
+    public void setUsername(String username) { Username = username; }
+    
     public String getPhone() { return Phone; } 
-    public String getAddress() { return Address; } 
+    public void setPhone(String phone) { Phone = phone; }
+    
+    public String getAddress() { return Address; }
+    public void setAddress(String address) { Address = address; }   
 }

@@ -1,0 +1,25 @@
+.productsIcon {
+    background: url("#{resource['img/productsIcon.png']}") no-repeat;
+}
+
+.ordersIcon {
+    background: url("#{resource['img/ordersIcon.png']}") no-repeat;
+}
+
+.usersIcon {
+    background: url("#{resource['img/usersIcon.png']}") no-repeat;
+}
+
+.delivered {
+    width: 30px;
+    height: 30px;
+    margin: auto;    
+}
+
+.delivered_true {
+    background: url("#{resource['img/delivered_true.png']}") no-repeat;  
+}
+
+.delivered_false {
+    background: url("#{resource['img/delivered_false.png']}") no-repeat;  
+}

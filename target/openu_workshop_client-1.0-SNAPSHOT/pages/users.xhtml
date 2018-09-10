@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        <ui:composition template = "../common.xhtml">
+                <ui:param name = "title" value = "Users" />
+                <ui:define name = "content">
+                    
+                    <div class="box">
+                        <h:form>
+                            
+                        <table>
+                            <tr>
+                                <td>Add Admin: </td>
+                                <td><h:inputText value="#{usersBean.newAdmin.username}" required="true" requiredMessage="username" /></td>
+                                <td><h:inputText value="#{usersBean.newAdmin.address}" required="true" requiredMessage="phone" /></td>
+                                <td><h:inputText value="#{usersBean.newAdmin.phone}" required="true" requiredMessage="address" /></td>
+                                <td>
+                                    <h:commandButton value="Add" action="#{usersBean.add()}" />
+                                </td>
+                            </tr>
+                        </table>                            
+                            
+                        <table class="cool_table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Username</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Update</th>
+                                </tr>                            
+                            </thead>
+                            <tbody>
+                                <ui:repeat value="#{usersBean.users}" var="user">
+                                    <tr>
+                                        <td>#{category.id}</td>
+                                        <td>#{user.username}</td>
+                                        <td>
+                                            <h:inputText value="#{user.address}" required="true" requiredMessage="required" />
+                                        </td>
+                                        <td>
+                                            <h:inputText value="#{user.phone}" required="true" requiredMessage="required" />
+                                        </td>
+                                        <td>
+                                            <h:commandButton value="Update" action="#{usersBean.update(user)}" />
+                                        </td>
+                                    </tr>
+                                </ui:repeat>
+                            </tbody>
+                        </table> 
+                        </h:form>
+                    
+                    </div>
+                </ui:define>
+            
+        </ui:composition>
+</html>
+
+
