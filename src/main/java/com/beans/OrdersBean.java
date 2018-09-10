@@ -23,7 +23,7 @@ public class OrdersBean
     private final String ordersAddsress;
     private final String usersAddsress;
     private final String productsAddsress;
-    private final Map<Integer, String> usersIdsToNames;
+    private final Map<Integer, User> usersIdsToUsers;
     private Map<String, Integer> productsToAmount;
     private Order viewedOrder;
     
@@ -35,7 +35,7 @@ public class OrdersBean
         RestClient client = new RestClient();
         orders = client.Get(ordersAddsress, Order[].class);
         
-        usersIdsToNames = new HashMap<>();
+        usersIdsToUsers = new HashMap<>();
         
         Map<String, String> queryParams = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();           
         getUsersAndOrder(client, queryParams.get("order"));
@@ -49,7 +49,7 @@ public class OrdersBean
             }
             int userId = order.getUserId();
             User user = client.Get(usersAddsress + "/" + userId, User.class);
-            usersIdsToNames.put(userId, user.getUsername());
+            usersIdsToUsers.put(userId, user);
         }        
     }
     
@@ -69,8 +69,8 @@ public class OrdersBean
         return orders;
     }
     
-    public Map<Integer, String> getUsersIdsToNames() {
-        return usersIdsToNames;
+    public Map<Integer, User> getUsersIdsToUsers() {
+        return usersIdsToUsers;
     }
     
     public Order getViewedOrder() {

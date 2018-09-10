@@ -20,6 +20,7 @@ public class ProductsBean
     private final String categoryProductsAddsress;
     private final String productsAddsress;  
     private final String categoryId; 
+    private final Product newProduct;
     
     public ProductsBean() 
     {
@@ -29,6 +30,9 @@ public class ProductsBean
         productsAddsress = Config.Host + "products/";
         RestClient client = new RestClient();
         products = client.Get(categoryProductsAddsress, Product[].class);
+        newProduct = new Product();
+        newProduct.setTitle("Title");
+        newProduct.setPicture("Picture");
     }
     
     public Product[] getProducts() 
@@ -39,9 +43,19 @@ public class ProductsBean
     public void reload() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI() + "?category=" + categoryId);
-}
+    }
     
-    public void test(Product product) throws IOException {
+    public Product getNewProduct() {
+        return newProduct;
+    }
+    
+    public void add() throws IOException {
+        RestClient client = new RestClient();
+        client.Post(categoryProductsAddsress, newProduct);
+        reload();        
+    }
+    
+    public void update(Product product) throws IOException {
         RestClient client = new RestClient();
         client.Put(productsAddsress + product.getId(), product);
         reload();

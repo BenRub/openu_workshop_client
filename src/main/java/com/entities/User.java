@@ -13,7 +13,10 @@ public class User {
     public int Id; 
     public String Username; 
     public String Password; 
-    public String Phone;  
+    public String Phone; 
+    public String Address;   
     
     public String getUsername() { return Username; } 
+    public String getPhone() { return Phone; } 
+    public String getAddress() { return Address; } 
 }

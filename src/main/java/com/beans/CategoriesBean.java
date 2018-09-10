@@ -16,11 +16,14 @@ public class CategoriesBean
 {
     private final Category[] categories;
     private final String categoriesAddsress;
+    private Category newCategory;
     public CategoriesBean() 
     {
         categoriesAddsress = Config.Host + "Categories/";
         RestClient client = new RestClient();
         categories = client.Get(categoriesAddsress, Category[].class);
+        newCategory = new Category();
+        newCategory.setName("name");
     }
     
     public Category[] getCategories() 
@@ -28,9 +31,19 @@ public class CategoriesBean
         return categories;
     }
     
+    public Category getNewCategory() {
+        return newCategory;
+    }
+    
     public void reload() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+    }
+    
+    public void add() throws IOException {
+        RestClient client = new RestClient();
+        client.Post(categoriesAddsress, newCategory);
+        reload();        
     }
     
     public void update(Category category) throws IOException {

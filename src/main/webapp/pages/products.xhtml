@@ -11,6 +11,19 @@
                     <div class="box">
                         <h:form>
                         <input type="hidden" name="category" value="#{param.category}" />
+                        
+                        <table>
+                            <tr>
+                                <td>Add: </td>
+                                <td><h:inputText value="#{productsBean.newProduct.title}" required="true" requiredMessage="title" /></td>
+                                <td><h:inputText value="#{productsBean.newProduct.picture}" required="true" requiredMessage="picture" /></td>
+                                <td>
+                                    <h:commandButton value="Add" action="#{productsBean.add()}" />
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
@@ -31,7 +44,7 @@
                                             <h:inputText value="#{product.picture}" required="true" requiredMessage="required" />
                                         </td>
                                         <td>
-                                            <h:commandButton value="Update" action="#{productsBean.test(product)}" />
+                                            <h:commandButton value="Update" action="#{productsBean.update(product)}" />
                                         </td>
                                     </tr>
                                 </ui:repeat>
