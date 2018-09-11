@@ -13,6 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginFilter implements Filter {
+    private LoginBean loginBean;
+    private String loginPath;
+    
+    public LoginFilter() {
+        loginPath = "/faces/login.xhtml";
+    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException { /* Nothing to do here! */ }
@@ -22,16 +28,29 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        LoginBean loginBean = (LoginBean)((HttpServletRequest)request).getSession().getAttribute("loginBean");
+        HttpServletRequest httpRequest = ((HttpServletRequest)request);
         
-        if (loginBean == null) {
-            String contextPath = ((HttpServletRequest)request).getContextPath();
-            ((HttpServletResponse)response).sendRedirect(contextPath + "/faces/login.xhtml");
-        }
-        else {
-            Config.Token = loginBean.getToken();
+        GetLoginBean(httpRequest);
+        
+        if (!httpRequest.getRequestURI().endsWith(loginPath) && loginBean == null)
+            GoToLogin(httpRequest, ((HttpServletResponse)response));
+        else       
             chain.doFilter(request, response);
-        }
+    }
+    
+    private void GetLoginBean(HttpServletRequest httpRequest) {
+        loginBean = (LoginBean)(httpRequest.getSession().getAttribute("loginBean"));
+        if (loginBean != null) {
+            if (loginBean.isLogged())
+                Config.Token = loginBean.getToken();
+            else
+                loginBean = null;
+        }        
+    }
+    
+    private void GoToLogin(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws IOException {
+        String contextPath = httpRequest.getContextPath();
+        httpResponse.sendRedirect(contextPath + loginPath);        
     }
     
 }

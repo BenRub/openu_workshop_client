@@ -16,6 +16,7 @@ public class LoginBean extends CommonBean implements Serializable
     private final UsersApi usersApi;
     private User loggedUser;
     private LoginResult loginResult;
+    private boolean isLogged;
     private String loginError;
     
     public LoginBean() 
@@ -23,11 +24,16 @@ public class LoginBean extends CommonBean implements Serializable
         loginInfo = new LoginInfo();
         usersApi = new UsersApi();
         loginError = "";
+        isLogged = false;
     }
 
     public LoginInfo getLoginInfo() 
     {
         return loginInfo;
+    }
+    
+    public boolean isLogged() {
+        return isLogged;
     }
     
     public String getToken() {
@@ -45,6 +51,7 @@ public class LoginBean extends CommonBean implements Serializable
             loginResult = result;
             Config.Token = result.value;
             loggedUser = usersApi.Get(result.userId);
+            isLogged = true;
             GoHome();
         }
         else {
