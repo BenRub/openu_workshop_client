@@ -5,7 +5,6 @@ import com.mycompany.openu_workshop_client.Config;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.function.Function;
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -50,7 +49,7 @@ public class RestRequests {
     }       
     
     private Builder CreateRequestBuilder(String url) {
-        return new Request.Builder().url(Config.Host + "/" + url);
+        return new Request.Builder().url(Config.Host + "/" + url).header("token", Config.Token);
     }
     
     private Response SendRequest(Request request) throws IOException {
