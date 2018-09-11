@@ -12,42 +12,43 @@
                         <h:form>                   
                         
                         <span class="error">#{userSingleBean.addingError}</span>
+                        <h:messages class="error" style="color:red" />
                         <table>
                             <tr>
                                 <td>Username: </td>
-                                <td><h:inputText value="#{userSingleBean.user.username}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.username}" required="true" requiredMessage="username required" /></td>
                             </tr>
                             <tr>
                                 <td>Password: </td>
-                                <td><h:inputSecret value="#{userSingleBean.user.password}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputSecret value="#{userSingleBean.user.password}" required="true" requiredMessage="password required" /></td>
                             </tr>
                             <tr>
                                 <td>First name: </td>
-                                <td><h:inputText value="#{userSingleBean.user.firstName}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.firstName}" required="true" requiredMessage="first name required" /></td>
                             </tr>
                             <tr>
                                 <td>Last name: </td>
-                                <td><h:inputText value="#{userSingleBean.user.lastName}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.lastName}" required="true" requiredMessage="last name required" /></td>
                             </tr>
                             <tr>
                                 <td>Email: </td>
-                                <td><h:inputText value="#{userSingleBean.user.email}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.email}" required="true" requiredMessage="email required" /></td>
                             </tr>
                             <tr>
                                 <td>Address: </td>
-                                <td><h:inputText value="#{userSingleBean.user.address}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.address}" required="true" requiredMessage="address required" /></td>
                             </tr>
                             <tr>
                                 <td>City: </td>
-                                <td><h:inputText value="#{userSingleBean.user.city}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.city}" required="true" requiredMessage="city required" /></td>
                             </tr>
                             <tr>
                                 <td>Zip code: </td>
-                                <td><h:inputText value="#{userSingleBean.user.zipCode}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.zipCode}" /></td>
                             </tr>
                             <tr>
                                 <td>Phone: </td>
-                                <td><h:inputText value="#{userSingleBean.user.phoneNumber}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{userSingleBean.user.phoneNumber}" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2">

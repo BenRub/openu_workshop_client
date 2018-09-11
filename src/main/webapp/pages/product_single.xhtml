@@ -14,26 +14,27 @@
                         <input type="hidden" name="category" value="#{param.category}" />                     
                         
                         <span class="error">#{productSingleBean.savingError}</span>
+                        <h:messages class="error" style="color:red" />
                         <table>
                             <tr>
                                 <td>Name: </td>
-                                <td><h:inputText value="#{productSingleBean.product.name}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{productSingleBean.product.name}" required="true" requiredMessage="name required" /></td>
                             </tr>
                             <tr>
                                 <td>Vendor: </td>
-                                <td><h:inputText value="#{productSingleBean.product.vendor}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText value="#{productSingleBean.product.vendor}" required="true" requiredMessage="vendor required" /></td>
                             </tr>
                             <tr>
                                 <td>Category: </td>
                                 <td>
-                                    <h:selectOneMenu value="#{productSingleBean.product.category}">
+                                    <h:selectOneMenu required="true" requiredMessage="category reqired" value="#{productSingleBean.product.category}">
                                         <f:selectItems value="#{productSingleBean.categoriesNames}" />
                                     </h:selectOneMenu>                                    
                                 </td>
                             </tr>
                             <tr>
                                 <td>Image Url: </td>
-                                <td><h:inputText size="100" value="#{productSingleBean.product.imageUrl}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText size="100" value="#{productSingleBean.product.imageUrl}" required="true" requiredMessage="image url required" /></td>
                                 <td>
                                     <a target="_blank" href="#{productSingleBean.product.imageUrl}">
                                         <img src="#{productSingleBean.product.imageUrl}" width="50" height="50" />
@@ -42,21 +43,21 @@
                             </tr>
                             <tr>
                                 <td>Price: </td>
-                                <td><h:inputText value="#{productSingleBean.product.price}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText label="Price" value="#{productSingleBean.product.price}" required="true" requiredMessage="price required" /></td>
                             </tr>
                             <tr>
                                 <td>Units In Stock: </td>
-                                <td><h:inputText value="#{productSingleBean.product.unitsInStock}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText label="Units In Stock" value="#{productSingleBean.product.unitsInStock}" required="true" requiredMessage="units In Stock required" /></td>
                             </tr>
                             <tr>
                                 <td>Discount: </td>
-                                <td><h:inputText value="#{productSingleBean.product.discount}" required="true" requiredMessage="required" /></td>
+                                <td><h:inputText label="Discount" value="#{productSingleBean.product.discount}" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2">Description:</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><h:inputTextarea rows="5" cols="50" value="#{productSingleBean.product.description}" required="true" requiredMessage="required" /></td>
+                                <td colspan="2"><h:inputTextarea rows="5" cols="50" value="#{productSingleBean.product.description}" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
