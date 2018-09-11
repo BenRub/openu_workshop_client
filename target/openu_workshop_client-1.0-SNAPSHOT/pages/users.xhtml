@@ -9,44 +9,36 @@
                 <ui:define name = "content">
                     
                     <div class="box">
-                        <h:form>
-                            
-                        <table>
-                            <tr>
-                                <td>Add Admin: </td>
-                                <td><h:inputText value="#{usersBean.newAdmin.username}" required="true" requiredMessage="username" /></td>
-                                <td><h:inputText value="#{usersBean.newAdmin.address}" required="true" requiredMessage="phone" /></td>
-                                <td><h:inputText value="#{usersBean.newAdmin.phone}" required="true" requiredMessage="address" /></td>
-                                <td>
-                                    <h:commandButton value="Add" action="#{usersBean.add()}" />
-                                </td>
-                            </tr>
-                        </table>                            
+                        <h:form>                          
                             
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>Username</th>
+                                    <th>Role</th>
+                                    <th>First</th>
+                                    <th>Last</th>
+                                    <th>Email</th>
                                     <th>Address</th>
+                                    <th>City</th>
+                                    <th>Zip code</th>
                                     <th>Phone</th>
-                                    <th>Update</th>
                                 </tr>                            
                             </thead>
                             <tbody>
                                 <ui:repeat value="#{usersBean.users}" var="user">
                                     <tr>
-                                        <td>#{category.id}</td>
+                                        <td>#{user.id}</td>
                                         <td>#{user.username}</td>
-                                        <td>
-                                            <h:inputText value="#{user.address}" required="true" requiredMessage="required" />
-                                        </td>
-                                        <td>
-                                            <h:inputText value="#{user.phone}" required="true" requiredMessage="required" />
-                                        </td>
-                                        <td>
-                                            <h:commandButton value="Update" action="#{usersBean.update(user)}" />
-                                        </td>
+                                        <td>#{user.roleId}</td>
+                                        <td>#{user.firstName}</td>
+                                        <td>#{user.lastName}</td>
+                                        <td>#{user.email}</td>
+                                        <td>#{user.address}</td>
+                                        <td>#{user.city}</td>
+                                        <td>#{user.zipCode}</td>
+                                        <td>#{user.phoneNumber}</td>
                                     </tr>
                                 </ui:repeat>
                             </tbody>

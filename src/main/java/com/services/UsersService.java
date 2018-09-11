@@ -1,11 +1,8 @@
 package com.services;
 import com.entities.LoginInfo;
 import com.entities.LoginResult;
-import com.entities.Product;
 import com.entities.User;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class UsersService extends BaseService {
     
@@ -13,22 +10,12 @@ public class UsersService extends BaseService {
         super("users");
     }
     
-    public LoginResult AdminSignIn(LoginInfo loginInfo) {
+    public User[] GetAll() {
         try {
-            return requests.PostWithAnswer(url + "/signin/admin", loginInfo, LoginResult.class);
+            return requests.Get(url, User[].class);
         } catch (IOException ex) {
-            return null;
-        }
-    }
-    
-    public Product[] GetAll(String category) {
-        Product[] products = new Product[] {};
-        try {
-            String urlPostFix = category == null ? "" : "?category=" + category;
-            products = requests.Get(url + urlPostFix, Product[].class);
-        } finally {
-            return products;
-        }        
+            return new User[] {};
+        }       
     }
     
     public User Get(int userId) {
@@ -39,9 +26,18 @@ public class UsersService extends BaseService {
         }
     }
     
-    public boolean Create(Product product) {
+    public LoginResult AdminSignIn(LoginInfo loginInfo) {
         try {
-            requests.Post(url, product);
+            return requests.PostWithAnswer(url + "/signin/admin", loginInfo, LoginResult.class);
+        } catch (IOException ex) {
+            return null;
+        }
+    }
+    
+    public boolean CreateAdmin(User user) {
+        try {
+            user.roleId = "Admin";
+            requests.Post(url + "/signup/admin", user);
             return true;
         } catch (IOException ex) {
             return false;
