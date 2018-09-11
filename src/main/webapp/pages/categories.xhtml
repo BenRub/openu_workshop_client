@@ -9,17 +9,18 @@
                 <ui:define name = "content">
                     
                     <div class="box">
-                        <h:form>
-                            
+                        <h:form> 
                         <table>
                             <tr>
                                 <td>Add: </td>
-                                <td><h:inputText value="#{categoriesBean.newCategory.name}" required="true" requiredMessage="name" /></td>
+                                <td><h:inputText id="name" value="#{categoriesBean.newCategory.name}" required="true" requiredMessage="name reqired" /></td>
                                 <td>
                                     <h:commandButton value="Add" action="#{categoriesBean.add()}" />
                                 </td>
+                                <td><h:message for="name" style="color: red;" /></td>
                             </tr>
                         </table> 
+                        </h:form>
                         #{categoriesBean.addingError}
                             
                         <table class="cool_table">
@@ -42,7 +43,6 @@
                                 </ui:repeat>
                             </tbody>
                         </table> 
-                        </h:form>
                     
                     </div>
                 </ui:define>

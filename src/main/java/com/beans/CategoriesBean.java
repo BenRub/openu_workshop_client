@@ -19,7 +19,6 @@ public class CategoriesBean extends CommonBean {
         categoriesService = new CategoriesService();
         categories = categoriesService.GetAll();
         newCategory = new Category();
-        newCategory.setName("name");
         addingError = "";
     }
     
