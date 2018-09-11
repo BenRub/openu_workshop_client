@@ -1,18 +1,13 @@
 package com.beans;
 
-import com.Util.RestClient;
 import com.entities.Order;
 import com.entities.User;
 import com.services.OrdersService;
 import com.services.UsersService;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @RequestScoped

@@ -22,6 +22,5 @@ com\services\RestRequests.class
 com\entities\EntityWithId.class
 com\entities\Order.class
 com\entities\Category.class
-com\Util\RestClient.class
 com\beans\ProductsBean.class
 com\entities\ProductAndAmount.class
