@@ -13,14 +13,19 @@
                         
                         <div class="order_status order_status_#{orderSingleBean.order.status}" style="margin: 0;width: 180px;text-align: center;">
                             <b>Status:</b> #{orderSingleBean.order.status}
-                        </div>  
+                        </div>                      
                             
                         <h:form rendered="#{orderSingleBean.order.status eq 'Pending'}">
                             <input type="hidden" name="id" value="#{param.id}" />
                             <h:commandButton value="Mark as done" action="#{orderSingleBean.MarkAsDone()}"></h:commandButton> 
                             <h:commandButton value="Cancel" action="#{orderSingleBean.Cancel()}"></h:commandButton> 
                             <span class="error">#{orderSingleBean.changingError}</span>
-                        </h:form>    
+                        </h:form>   
+                        
+                        <br /><b>Date: </b>
+                        <h:outputText value = "#{orderSingleBean.order.timestamp}" >
+                            <f:convertDateTime pattern = "dd-mm-yyyy HH:mm" />
+                        </h:outputText><br />    
                             
                         <br /><b>Contact: </b> <br />
                         #{orderSingleBean.user.firstName} #{orderSingleBean.user.lastName}<br />

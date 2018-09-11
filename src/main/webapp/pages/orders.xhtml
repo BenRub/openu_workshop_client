@@ -16,6 +16,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>User</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th>View</th>
                                 </tr>                            
@@ -25,6 +26,11 @@
                                     <tr>
                                         <td>#{order.id}</td>
                                         <td>#{ordersBean.usersIdsToUsers[order.userId].username}</td>
+                                        <td style="text-align: center;">
+                                            <h:outputText value = "#{order.timestamp}" >
+                                               <f:convertDateTime pattern = "dd-mm-yyyy HH:mm" />
+                                            </h:outputText>
+                                        </td>
                                         <td><div class="order_status order_status_#{order.status}"></div></td>
                                         <td>
                                             <h:link value="View" outcome="/pages/order_single?faces-redirect=true">
