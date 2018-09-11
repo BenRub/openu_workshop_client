@@ -5,14 +5,10 @@ import com.entities.Category;
 import java.io.IOException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @RequestScoped
-public class CategoriesBean 
-{
+public class CategoriesBean extends CommonBean {
     private final Category[] categories;
     private final CategoriesApi categoriesApi;
     private Category newCategory;
@@ -38,11 +34,6 @@ public class CategoriesBean
     
     public String getAddingError() {
         return addingError;
-    }
-    
-    public void reload() throws IOException {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
     }
     
     public void add() throws IOException {
