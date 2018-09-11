@@ -15,6 +15,7 @@ com\entities\OrderStatus.class
 com\beans\CommonBean.class
 com\services\UsersService.class
 com\entities\LoginResult.class
+com\beans\UserSingleBean.class
 com\filters\LoginFilter.class
 com\services\OrdersService.class
 com\services\RestRequests.class

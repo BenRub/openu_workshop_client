@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        <ui:composition template = "../common.xhtml">
+                <ui:param name = "title" value = "Products" />
+                <ui:define name = "content">
+                    
+                    <div class="box">
+                        <h:form>                   
+                        
+                        <span class="error">#{userSingleBean.addingError}</span>
+                        <table>
+                            <tr>
+                                <td>Username: </td>
+                                <td><h:inputText value="#{userSingleBean.user.username}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Password: </td>
+                                <td><h:inputSecret value="#{userSingleBean.user.password}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>First name: </td>
+                                <td><h:inputText value="#{userSingleBean.user.firstName}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Last name: </td>
+                                <td><h:inputText value="#{userSingleBean.user.lastName}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Email: </td>
+                                <td><h:inputText value="#{userSingleBean.user.email}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Address: </td>
+                                <td><h:inputText value="#{userSingleBean.user.address}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>City: </td>
+                                <td><h:inputText value="#{userSingleBean.user.city}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Zip code: </td>
+                                <td><h:inputText value="#{userSingleBean.user.zipCode}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Phone: </td>
+                                <td><h:inputText value="#{userSingleBean.user.phoneNumber}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h:commandButton value="Add" action="#{userSingleBean.Add()}" />
+                                </td>
+                            </tr>
+                        </table> 
+                        </h:form>
+                    
+                    </div>
+                </ui:define>
+            
+        </ui:composition>
+</html>
+
+
