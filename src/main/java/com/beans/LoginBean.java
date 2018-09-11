@@ -13,7 +13,7 @@ import javax.faces.bean.SessionScoped;
 public class LoginBean extends CommonBean implements Serializable
 {
     private final LoginInfo loginInfo;
-    private final UsersService usersApi;
+    private final UsersService usersService;
     private User loggedUser;
     private LoginResult loginResult;
     private boolean isLogged;
@@ -22,7 +22,7 @@ public class LoginBean extends CommonBean implements Serializable
     public LoginBean() 
     {
         loginInfo = new LoginInfo();
-        usersApi = new UsersService();
+        usersService = new UsersService();
         loginError = "";
         isLogged = false;
     }
@@ -50,11 +50,11 @@ public class LoginBean extends CommonBean implements Serializable
     }
     
     public void Login() {
-        LoginResult result = usersApi.AdminSignIn(loginInfo);
+        LoginResult result = usersService.AdminSignIn(loginInfo);
         if (result != null) {
             loginResult = result;
             Config.Token = result.value;
-            loggedUser = usersApi.Get(result.userId);
+            loggedUser = usersService.Get(result.userId);
             isLogged = true;
             GoHome();
         }

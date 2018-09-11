@@ -18,7 +18,7 @@ public class ProductSingleBean extends CommonBean
     private final String productId;
     private final String category;
     private final Product product;
-    private final ProductsService productsApi;
+    private final ProductsService productsService;
     private List<String> categoriesNames;
     private String savingError;
     
@@ -27,13 +27,13 @@ public class ProductSingleBean extends CommonBean
         Map<String, String> queryParams = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();   
         productId = queryParams.get("id");
         category = queryParams.get("category");
-        productsApi = new ProductsService();
+        productsService = new ProductsService();
         if (productId == null) {
             product = new Product();
             product.setCategory(category);
         }
         else 
-            product = productsApi.Get(productId);
+            product = productsService.Get(productId);
         savingError = "";
         fillCategoriesNames();
     }
@@ -62,9 +62,9 @@ public class ProductSingleBean extends CommonBean
     public void Save() {
         boolean result;
         if (productId == null || productId.isEmpty())
-            result = productsApi.Create(product);
+            result = productsService.Create(product);
         else
-            result = productsApi.Update(product);
+            result = productsService.Update(product);
         
         if (result) {
             String postFix = category != null && !category.isEmpty() ? "?category=" + category : "";

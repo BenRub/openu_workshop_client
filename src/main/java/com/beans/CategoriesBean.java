@@ -10,14 +10,14 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class CategoriesBean extends CommonBean {
     private final Category[] categories;
-    private final CategoriesService categoriesApi;
+    private final CategoriesService categoriesService;
     private final Category newCategory;
     private String addingError;
     
     public CategoriesBean() 
     {
-        categoriesApi = new CategoriesService();
-        categories = categoriesApi.GetAll();
+        categoriesService = new CategoriesService();
+        categories = categoriesService.GetAll();
         newCategory = new Category();
         newCategory.setName("name");
         addingError = "";
@@ -37,7 +37,7 @@ public class CategoriesBean extends CommonBean {
     }
     
     public void add() throws IOException {
-        if (categoriesApi.Create(newCategory))
+        if (categoriesService.Create(newCategory))
             Refresh();     
         else
             addingError = "adding failed";
