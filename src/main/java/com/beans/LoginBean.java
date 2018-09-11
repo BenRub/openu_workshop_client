@@ -39,6 +39,10 @@ public class LoginBean extends CommonBean implements Serializable
     public String getToken() {
         return loginResult.value;
     }
+  
+    public User getLoggedUser() {
+        return loggedUser;
+    }
 
     public String getLoginError() 
     {
@@ -57,6 +61,14 @@ public class LoginBean extends CommonBean implements Serializable
         else {
             loginError = "Couldn't sign in";
         }
+    }
+    
+    public void Logout() {
+        isLogged = false;
+        loginResult = null;
+        loggedUser = null;
+        Config.Token = "";
+        GoHome();
     }
   
 }

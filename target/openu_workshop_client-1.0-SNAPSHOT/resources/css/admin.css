@@ -5,6 +5,11 @@ body
        font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;
 }
 
+.error:not(:empty) {
+    border: 1px solid red;
+    color: red;
+}
+
 .group:after {
   content: "";
   display: table; 
