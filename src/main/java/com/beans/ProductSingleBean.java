@@ -1,7 +1,7 @@
 package com.beans;
 
-import com.api.CategoriesService;
-import com.api.ProductsService;
+import com.services.CategoriesService;
+import com.services.ProductsService;
 import com.entities.Category;
 import com.entities.Product;
 import java.util.LinkedList;

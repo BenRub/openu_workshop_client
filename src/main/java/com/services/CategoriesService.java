@@ -1,4 +1,4 @@
-package com.api;
+package com.services;
 import com.entities.Category;
 import java.io.IOException;
 import java.util.LinkedList;

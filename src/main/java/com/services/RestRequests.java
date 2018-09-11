@@ -1,4 +1,4 @@
-package com.api;
+package com.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.openu_workshop_client.Config;

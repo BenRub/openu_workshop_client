@@ -1,4 +1,4 @@
-package com.api;
+package com.services;
 import com.entities.LoginInfo;
 import com.entities.LoginResult;
 import com.entities.Product;

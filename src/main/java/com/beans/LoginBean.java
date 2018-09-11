@@ -1,5 +1,5 @@
 package com.beans;
-import com.api.UsersService;
+import com.services.UsersService;
 import com.entities.LoginInfo;
 import com.entities.LoginResult;
 import com.entities.User;

@@ -1,6 +1,6 @@
 package com.beans;
 
-import com.api.ProductsService;
+import com.services.ProductsService;
 import com.entities.Product;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;

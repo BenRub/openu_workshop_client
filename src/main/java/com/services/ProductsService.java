@@ -1,4 +1,4 @@
-package com.api;
+package com.services;
 import com.entities.Product;
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.api;
+package com.services;
 
 public abstract class BaseService {
    protected String url;

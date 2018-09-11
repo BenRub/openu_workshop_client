@@ -1,6 +1,6 @@
 package com.beans;
 
-import com.api.CategoriesService;
+import com.services.CategoriesService;
 import com.entities.Category;
 import java.io.IOException;
 import javax.faces.bean.ManagedBean;
