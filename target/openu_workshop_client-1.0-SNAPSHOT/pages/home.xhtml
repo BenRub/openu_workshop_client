@@ -7,7 +7,9 @@
         <ui:composition template = "../common.xhtml">
                 <ui:param name = "title" value = "Home" />
                 <ui:define name = "content">				
-                    dafuck
+                    <h1 style="margin: 4px;">
+                        Welcome, #{loginBean.loggedUser.firstName} #{loginBean.loggedUser.lastName}
+                    </h1>
                 </ui:define>
             
         </ui:composition>
