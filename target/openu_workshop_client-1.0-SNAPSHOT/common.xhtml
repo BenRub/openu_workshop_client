@@ -15,12 +15,14 @@
             <div class="wrapper group">
                 <div class="menu">
                     <div class="menuHeader">
-                       <h5 class="logo-text">Admin</h5> 
+                        <h:link outcome="/index.xhtml" style="text-decoration: none;">
+                            <h5 class="logo-text">Admin</h5> 
+                        </h:link>       
                     </div>
                     <div class="menuContent">
                         <h:link value="Categories" class="productsIcon" outcome="/pages/categories?faces-redirect=true" />   
                         <h:link value="Orders" class="ordersIcon" outcome="/pages/orders?faces-redirect=true" />      
-                        <h:link value="Users" class="ordersIcon" outcome="/pages/users?faces-redirect=true" />   
+                        <h:link value="Users" class="usersIcon" outcome="/pages/users?faces-redirect=true" />   
                     </div>
                 </div>
                 <div class="content">

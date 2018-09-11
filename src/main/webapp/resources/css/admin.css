@@ -8,6 +8,7 @@ body
 .group:after {
   content: "";
   display: table; 
+  clear: both;
 }
 
 div.wrapper {  
@@ -78,7 +79,8 @@ div.contentHeader {
 
 div.contentPage {
     background-color: #f9fafb;
-    min-height: 500px;
+    min-height: 780px;
+    padding-top: 20px;
 }
 
 div.box {

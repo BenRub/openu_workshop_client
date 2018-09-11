@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @RequestScoped
-public class UsersBean 
+public class UsersBean extends CommonBean 
 {
     private final User[] users;
     private final String usersAddsress;
@@ -35,11 +35,6 @@ public class UsersBean
     
     public User getNewAdmin() {
         return newAdmin;
-    }
-    
-    public void reload() throws IOException {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
     }
     
     public void add() throws IOException {
