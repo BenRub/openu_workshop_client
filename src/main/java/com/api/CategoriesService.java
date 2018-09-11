@@ -3,12 +3,10 @@ import com.entities.Category;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class CategoriesApi extends BaseApi {
+public class CategoriesService extends BaseService {
     
-    public CategoriesApi() {
+    public CategoriesService() {
         super("categories");
     }
     

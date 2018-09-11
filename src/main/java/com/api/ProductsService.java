@@ -2,9 +2,9 @@ package com.api;
 import com.entities.Product;
 import java.io.IOException;
 
-public class ProductsApi extends BaseApi {
+public class ProductsService extends BaseService {
     
-    public ProductsApi() {
+    public ProductsService() {
         super("products");
     }
     

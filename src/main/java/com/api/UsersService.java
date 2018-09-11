@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UsersApi extends BaseApi {
+public class UsersService extends BaseService {
     
-    public UsersApi() {
+    public UsersService() {
         super("users");
     }
     

@@ -1,6 +1,6 @@
 package com.beans;
 
-import com.api.ProductsApi;
+import com.api.ProductsService;
 import com.entities.Product;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
@@ -18,7 +18,7 @@ public class ProductsBean
     {
         Map<String, String> queryParams = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();   
         category = queryParams.get("category");
-        products = new ProductsApi().GetAll(category);
+        products = new ProductsService().GetAll(category);
     }
     
     public Product[] getProducts() 

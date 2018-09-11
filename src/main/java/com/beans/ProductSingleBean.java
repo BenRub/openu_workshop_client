@@ -1,7 +1,7 @@
 package com.beans;
 
-import com.api.CategoriesApi;
-import com.api.ProductsApi;
+import com.api.CategoriesService;
+import com.api.ProductsService;
 import com.entities.Category;
 import com.entities.Product;
 import java.util.LinkedList;
@@ -18,7 +18,7 @@ public class ProductSingleBean extends CommonBean
     private final String productId;
     private final String category;
     private final Product product;
-    private final ProductsApi productsApi;
+    private final ProductsService productsApi;
     private List<String> categoriesNames;
     private String savingError;
     
@@ -27,7 +27,7 @@ public class ProductSingleBean extends CommonBean
         Map<String, String> queryParams = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();   
         productId = queryParams.get("id");
         category = queryParams.get("category");
-        productsApi = new ProductsApi();
+        productsApi = new ProductsService();
         if (productId == null) {
             product = new Product();
             product.setCategory(category);
@@ -40,7 +40,7 @@ public class ProductSingleBean extends CommonBean
     
     private void fillCategoriesNames() {
         categoriesNames = new LinkedList<>();
-        for(Category category : new CategoriesApi().GetAll()) {
+        for(Category category : new CategoriesService().GetAll()) {
             categoriesNames.add(category.getName());
         }
     }

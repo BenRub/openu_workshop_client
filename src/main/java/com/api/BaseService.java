@@ -1,9 +1,9 @@
 package com.api;
 
-public abstract class BaseApi {
+public abstract class BaseService {
    protected String url;
    protected RestRequests requests;
-   public BaseApi(String url) {
+   public BaseService(String url) {
        this.url = url;
        this.requests = new RestRequests();
    }

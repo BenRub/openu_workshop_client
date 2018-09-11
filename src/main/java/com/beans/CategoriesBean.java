@@ -1,6 +1,6 @@
 package com.beans;
 
-import com.api.CategoriesApi;
+import com.api.CategoriesService;
 import com.entities.Category;
 import java.io.IOException;
 import javax.faces.bean.ManagedBean;
@@ -10,13 +10,13 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class CategoriesBean extends CommonBean {
     private final Category[] categories;
-    private final CategoriesApi categoriesApi;
+    private final CategoriesService categoriesApi;
     private final Category newCategory;
     private String addingError;
     
     public CategoriesBean() 
     {
-        categoriesApi = new CategoriesApi();
+        categoriesApi = new CategoriesService();
         categories = categoriesApi.GetAll();
         newCategory = new Category();
         newCategory.setName("name");

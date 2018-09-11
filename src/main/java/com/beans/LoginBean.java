@@ -1,5 +1,5 @@
 package com.beans;
-import com.api.UsersApi;
+import com.api.UsersService;
 import com.entities.LoginInfo;
 import com.entities.LoginResult;
 import com.entities.User;
@@ -13,7 +13,7 @@ import javax.faces.bean.SessionScoped;
 public class LoginBean extends CommonBean implements Serializable
 {
     private final LoginInfo loginInfo;
-    private final UsersApi usersApi;
+    private final UsersService usersApi;
     private User loggedUser;
     private LoginResult loginResult;
     private boolean isLogged;
@@ -22,7 +22,7 @@ public class LoginBean extends CommonBean implements Serializable
     public LoginBean() 
     {
         loginInfo = new LoginInfo();
-        usersApi = new UsersApi();
+        usersApi = new UsersService();
         loginError = "";
         isLogged = false;
     }
