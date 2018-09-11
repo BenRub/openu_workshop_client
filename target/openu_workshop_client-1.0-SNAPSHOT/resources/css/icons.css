@@ -14,16 +14,20 @@
     background: url("#{resource['img/usersIcon.png']}") no-repeat;
 }
 
-.delivered {
+.order_status {
     width: 30px;
     height: 30px;
     margin: auto;    
 }
 
-.delivered_true {
-    background: url("#{resource['img/delivered_true.png']}") no-repeat;  
+.order_status_Done {
+    background: url("#{resource['img/order_status_done.png']}") no-repeat;  
 }
 
-.delivered_false {
-    background: url("#{resource['img/delivered_false.png']}") no-repeat;  
+.order_status_Pending {
+    background: url("#{resource['img/order_status_pending.png']}") no-repeat;  
+}
+
+.order_status_Canceled {
+    background: url("#{resource['img/order_status_canceled.png']}") no-repeat;  
 }

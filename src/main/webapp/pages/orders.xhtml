@@ -16,7 +16,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>User</th>
-                                    <th>Delivered</th>
+                                    <th>Status</th>
                                     <th>View</th>
                                 </tr>                            
                             </thead>
@@ -25,37 +25,14 @@
                                     <tr>
                                         <td>#{order.id}</td>
                                         <td>#{ordersBean.usersIdsToUsers[order.userId].username}</td>
-                                        <td><div class="delivered delivered_#{order.delivered}"></div></td>
+                                        <td><div class="order_status order_status_#{order.status}"></div></td>
                                         <td>
-                                            <h:link value="View" outcome="/pages/orders?faces-redirect=true">
-                                                <f:param name="order" value="#{order.id}" />
-                                            </h:link>  
+                                            To Do
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table> 
-                        </h:form>
-                    
-                        
-                        <br />
-                        <h:form rendered="#{not (ordersBean.viewedOrder eq null)}">
-                            <u>Username: </u> #{ordersBean.usersIdsToUsers[ordersBean.viewedOrder.userId].username}<br />
-                            <u>Phone: </u> #{ordersBean.usersIdsToUsers[ordersBean.viewedOrder.userId].phone}<br />
-                            <u>Address </u> #{ordersBean.usersIdsToUsers[ordersBean.viewedOrder.userId].address}<br />
-                            <u>Products:</u>
-                            <table style="width: 20%;">
-                                <tr style="font-weight: bold;">
-                                    <td>Title</td>
-                                    <td>Amount</td>
-                                </tr>
-                                <c:forEach items="#{ordersBean.viewedOrderProducts}" var="entry">
-                                    <tr>
-                                        <td style="width: 80%;">#{entry.key}</td>
-                                        <td style="width: 20%;text-align: center;">#{entry.value}</td>
-                                    </tr>
-                                </c:forEach>
-                            </table>
                         </h:form>
                     </div>
                 </ui:define>

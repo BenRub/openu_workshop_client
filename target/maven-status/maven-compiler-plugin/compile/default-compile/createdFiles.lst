@@ -3,6 +3,7 @@ com\entities\Product.class
 com\filters\LoginFilter.class
 com\beans\CategoriesBean.class
 com\entities\User.class
+com\services\OrdersService.class
 com\beans\OrdersBean.class
 com\services\RestRequests.class
 com\beans\LoginBean.class
