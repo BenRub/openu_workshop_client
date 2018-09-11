@@ -1,8 +1,7 @@
 package com.beans;
 
-import com.Util.RestClient;
+import com.api.CategoriesApi;
 import com.entities.Category;
-import com.mycompany.openu_workshop_client.Config;
 import java.io.IOException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -15,15 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 public class CategoriesBean 
 {
     private final Category[] categories;
-    private final String categoriesAddsress;
+    private final CategoriesApi categoriesApi;
     private Category newCategory;
+    private String addingError;
+    
     public CategoriesBean() 
     {
-        categoriesAddsress = Config.Host + "Categories/";
-        RestClient client = new RestClient();
-        categories = client.Get(categoriesAddsress, Category[].class);
+        categoriesApi = new CategoriesApi();
+        categories = categoriesApi.GetAll();
         newCategory = new Category();
         newCategory.setName("name");
+        addingError = "";
     }
     
     public Category[] getCategories() 
@@ -35,21 +36,20 @@ public class CategoriesBean
         return newCategory;
     }
     
+    public String getAddingError() {
+        return addingError;
+    }
+    
     public void reload() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
     }
     
     public void add() throws IOException {
-        RestClient client = new RestClient();
-        client.Post(categoriesAddsress, newCategory);
-        reload();        
-    }
-    
-    public void update(Category category) throws IOException {
-        RestClient client = new RestClient();
-        client.Put(categoriesAddsress + category.getId(), category);
-        reload();
+        if (categoriesApi.Create(newCategory))
+            reload();     
+        else
+            addingError = "adding failed";
     }
   
 }

@@ -19,31 +19,24 @@
                                     <h:commandButton value="Add" action="#{categoriesBean.add()}" />
                                 </td>
                             </tr>
-                        </table>                            
+                        </table> 
+                        #{categoriesBean.addingError}
                             
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
+                                    <th>Name</th>
                                     <th>Products</th>
-                                    <th>Update</th>
                                 </tr>                            
                             </thead>
                             <tbody>
                                 <ui:repeat value="#{categoriesBean.categories}" var="category">
                                     <tr>
-                                        <td>#{category.id}</td>
-                                        <td>
-                                            <h:inputText value="#{category.name}" required="true" requiredMessage="required" />
-                                        </td>
+                                        <td>#{category.name}</td>
                                         <td>
                                             <h:link value="Products" outcome="/pages/products?faces-redirect=true">
-                                                <f:param name="category" value="#{category.id}" />
+                                                <f:param name="category" value="#{category.name}" />
                                             </h:link>                                               
-                                        </td>
-                                        <td>
-                                            <h:commandButton value="Update" action="#{categoriesBean.update(category)}" />
                                         </td>
                                     </tr>
                                 </ui:repeat>
