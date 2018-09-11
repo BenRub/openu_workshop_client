@@ -18,6 +18,15 @@ public class ProductsApi extends BaseApi {
         }        
     }
     
+    public Product Get(String productId) {
+        Product product = new Product();
+        try {
+            product = requests.Get(url + "/" + productId, Product.class);
+        } finally {
+            return product;
+        }        
+    }
+    
     public boolean Create(Product product) {
         try {
             requests.Post(url, product);

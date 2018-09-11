@@ -6,8 +6,20 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 public class CommonBean {
-    public void reload() throws IOException {
+    
+    public void Refresh() {
+        Reload(null);
+    }
+    
+    public void Reload(String url) {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+        if (url == null) {
+            url = ((HttpServletRequest) ec.getRequest()).getRequestURI();
+        }
+        try {
+            ec.redirect(url);
+        } catch (IOException ex) {
+            
+        }
     }    
 }

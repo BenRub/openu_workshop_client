@@ -6,9 +6,6 @@ import com.mycompany.openu_workshop_client.Config;
 import java.io.IOException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @RequestScoped
@@ -40,13 +37,13 @@ public class UsersBean extends CommonBean
     public void add() throws IOException {
         RestClient client = new RestClient();
         client.Post(usersAddsress, newAdmin);
-        reload();        
+        Refresh();        
     }
     
     public void update(User user) throws IOException {
         RestClient client = new RestClient();
         client.Put(usersAddsress + user.getId(), user);
-        reload();
+        Refresh();
     }
   
 }

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        <ui:composition template = "../common.xhtml">
+                <ui:param name = "title" value = "Products" />
+                <ui:define name = "content">
+                    
+                    <div class="box">
+                        <h:form>
+                        <input type="hidden" name="id" value="#{param.id}" />
+                        <input type="hidden" name="category" value="#{param.category}" />                     
+                        
+                        <span>#{productSingleBean.savingError}</span>
+                        <table>
+                            <tr>
+                                <td>Name: </td>
+                                <td><h:inputText value="#{productSingleBean.product.name}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Vendor: </td>
+                                <td><h:inputText value="#{productSingleBean.product.vendor}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Category: </td>
+                                <td>#{productSingleBean.product.category}</td>
+                            </tr>
+                            <tr>
+                                <td>Image Url: </td>
+                                <td>#{productSingleBean.product.imageUrl}</td>
+                                <td>
+                                    <a href="#{productSingleBean.product.imageUrl}">
+                                        <img src="#{productSingleBean.product.imageUrl}" width="50" height="50" />
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Price: </td>
+                                <td><h:inputText value="#{productSingleBean.product.price}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Units In Stock: </td>
+                                <td><h:inputText value="#{productSingleBean.product.unitsInStock}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td>Discount: </td>
+                                <td><h:inputText value="#{productSingleBean.product.discount}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Description:</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><h:inputTextarea rows="5" cols="50" value="#{productSingleBean.product.description}" required="true" requiredMessage="required" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h:commandButton value="Save" action="#{productSingleBean.save()}" />
+                                </td>
+                            </tr>
+                        </table> 
+                        </h:form>
+                    
+                    </div>
+                </ui:define>
+            
+        </ui:composition>
+</html>
+
+

@@ -11,7 +11,7 @@ import javax.faces.bean.RequestScoped;
 public class CategoriesBean extends CommonBean {
     private final Category[] categories;
     private final CategoriesApi categoriesApi;
-    private Category newCategory;
+    private final Category newCategory;
     private String addingError;
     
     public CategoriesBean() 
@@ -38,7 +38,7 @@ public class CategoriesBean extends CommonBean {
     
     public void add() throws IOException {
         if (categoriesApi.Create(newCategory))
-            reload();     
+            Refresh();     
         else
             addingError = "adding failed";
     }
