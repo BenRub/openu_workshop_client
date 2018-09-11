@@ -1,7 +1,11 @@
 package com.beans;
 
+import com.api.CategoriesApi;
 import com.api.ProductsApi;
+import com.entities.Category;
 import com.entities.Product;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -15,6 +19,7 @@ public class ProductSingleBean extends CommonBean
     private final String category;
     private final Product product;
     private final ProductsApi productsApi;
+    private List<String> categoriesNames;
     private String savingError;
     
     public ProductSingleBean() 
@@ -30,6 +35,14 @@ public class ProductSingleBean extends CommonBean
         else 
             product = productsApi.Get(productId);
         savingError = "";
+        fillCategoriesNames();
+    }
+    
+    private void fillCategoriesNames() {
+        categoriesNames = new LinkedList<>();
+        for(Category category : new CategoriesApi().GetAll()) {
+            categoriesNames.add(category.getName());
+        }
     }
     
     public Product getProduct() 
@@ -42,15 +55,21 @@ public class ProductSingleBean extends CommonBean
         return savingError;
     } 
     
+    public List<String> getCategoriesNames() {
+        return categoriesNames;
+    }
+    
     public void Save() {
         boolean result;
-        if (productId == null)
+        if (productId == null || productId.isEmpty())
             result = productsApi.Create(product);
         else
             result = productsApi.Update(product);
         
-        if (result)
-            Reload("products");
+        if (result) {
+            String postFix = category != null && !category.isEmpty() ? "?category=" + category : "";
+            Reload("products.xhtml" + postFix);
+        }
         else
             savingError = "Error in saving";
     }

@@ -55,7 +55,10 @@ public class RestRequests {
     private Response SendRequest(Request request) throws IOException {
         OkHttpClient client = new OkHttpClient();
         Call call = client.newCall(request);
-        return call.execute();        
+        Response response = call.execute();
+        if (!response.isSuccessful())
+            throw new IOException("Response was not successful");
+        return response;        
     }
     
     private String ExtractBody(Response response) throws IOException {

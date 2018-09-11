@@ -9,7 +9,18 @@
                 <ui:define name = "content">
                     
                     <div class="box">
-                        <h:form>
+                        
+                        <h:form rendered="#{param.category eq null}">
+                            <h:link value="Add" outcome="/pages/product_single?faces-redirect=true"></h:link>                          
+                        </h:form>
+                        
+                        <h:form rendered="#{not (param.category eq null)}">
+                            <h:link value="Add" outcome="/pages/product_single?faces-redirect=true">
+                                <f:param name="category" value="#{param.category}" />
+                            </h:link>                         
+                        </h:form>                        
+                        
+                        
                         <input type="hidden" name="category" value="#{param.category}" />                   
                         
                         <table class="cool_table">
@@ -29,16 +40,26 @@
                                         <td>#{product.name} </td>
                                         <td>#{product.vendor}</td>
                                         <td>#{product.category}</td>
-                                        <td>
-                                           <h:link value="Update" outcome="/pages/product_single?faces-redirect=true">
+                                        <td> 
+                                            <h:form rendered="#{param.category eq null}">
+                                               <h:link value="Update" outcome="/pages/product_single?faces-redirect=true">
                                                 <f:param name="id" value="#{product.id}" />
-                                            </h:link>  
+                                               </h:link>                          
+                                           </h:form>
+
+                                           <h:form rendered="#{not (param.category eq null)}">
+                                               <h:link value="Update" outcome="/pages/product_single?faces-redirect=true">
+                                                <f:param name="id" value="#{product.id}" />
+                                                <f:param name="category" value="#{param.category}" />
+                                               </h:link>                     
+                                           </h:form> 
+                                            
+                                             
                                         </td>
                                     </tr>
                                 </ui:repeat>
                             </tbody>
                         </table> 
-                        </h:form>
                     
                     </div>
                 </ui:define>
