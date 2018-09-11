@@ -27,7 +27,9 @@
                                         <td>#{ordersBean.usersIdsToUsers[order.userId].username}</td>
                                         <td><div class="order_status order_status_#{order.status}"></div></td>
                                         <td>
-                                            To Do
+                                            <h:link value="View" outcome="/pages/order_single?faces-redirect=true">
+                                                <f:param name="id" value="#{order.id}" />
+                                            </h:link>  
                                         </td>
                                     </tr>
                                 </c:forEach>

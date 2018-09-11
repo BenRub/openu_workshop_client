@@ -17,7 +17,12 @@
 .order_status {
     width: 30px;
     height: 30px;
+    background-repeat: no-repeat;
     margin: auto;    
+}
+
+.order_status span {
+    margin-right: 25px;
 }
 
 .order_status_Done {

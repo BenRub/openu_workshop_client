@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+        <ui:composition template = "../common.xhtml">
+                <ui:param name = "title" value = "Orders" />
+                <ui:define name = "content">
+                    
+                    <div class="box">
+                        
+                        <div class="order_status order_status_#{orderSingleBean.order.status}" style="margin: 0;width: 180px;text-align: center;">
+                            <b>Status:</b> #{orderSingleBean.order.status}
+                        </div>  
+                            
+                        <h:form rendered="#{orderSingleBean.order.status eq 'Pending'}">
+                            <input type="hidden" name="id" value="#{param.id}" />
+                            <h:commandButton value="Mark as done" action="#{orderSingleBean.MarkAsDone()}"></h:commandButton> 
+                            <h:commandButton value="Cancel" action="#{orderSingleBean.Cancel()}"></h:commandButton> 
+                            <span class="error">#{orderSingleBean.changingError}</span>
+                        </h:form>    
+                            
+                        <br /><b>Contact: </b> <br />
+                        #{orderSingleBean.user.firstName} #{orderSingleBean.user.lastName}<br />
+                        #{orderSingleBean.user.email} <br />
+                        #{orderSingleBean.user.phoneNumber} <br />
+                        
+                        <br /><b>Shipping address: </b>  <br />
+                        #{orderSingleBean.user.address} <br />
+                        #{orderSingleBean.user.city} #{orderSingleBean.user.zipCode} <br />
+                        
+                        <br /><b>Products: </b> <br />
+                        <table class="cool_table" style="width:30%;">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                </tr>                            
+                            </thead>
+                            <tbody>
+                                <c:forEach items="#{orderSingleBean.order.products}" var="pair">
+                                    <tr>
+                                        <td>#{orderSingleBean.productsIdsToProducts[pair.productId].name}</td>
+                                        <td style="text-align: center;">#{pair.amount}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </ui:define>
+            
+        </ui:composition>
+</html>
+
+
