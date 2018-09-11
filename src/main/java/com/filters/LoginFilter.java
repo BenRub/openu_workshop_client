@@ -22,15 +22,15 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         LoginBean loginBean = (LoginBean)((HttpServletRequest)request).getSession().getAttribute("loginBean");
         
         if (loginBean == null) {
             String contextPath = ((HttpServletRequest)request).getContextPath();
-            ((HttpServletResponse)response).sendRedirect(contextPath + "/login.xhtml");
+            ((HttpServletResponse)response).sendRedirect(contextPath + "/faces/login.xhtml");
         }
         else {
             Config.Token = loginBean.getToken();
+            chain.doFilter(request, response);
         }
     }
     

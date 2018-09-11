@@ -3,10 +3,10 @@ import com.api.UsersApi;
 import com.entities.LoginInfo;
 import com.entities.LoginResult;
 import com.entities.User;
+import com.mycompany.openu_workshop_client.Config;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @SessionScoped
@@ -43,8 +43,9 @@ public class LoginBean extends CommonBean implements Serializable
         LoginResult result = usersApi.AdminSignIn(loginInfo);
         if (result != null) {
             loginResult = result;
-            //loggedUser = usersApi.Get(result.userId);
-            //Reload("/");
+            Config.Token = result.value;
+            loggedUser = usersApi.Get(result.userId);
+            GoHome();
         }
         else {
             loginError = "Couldn't sign in";

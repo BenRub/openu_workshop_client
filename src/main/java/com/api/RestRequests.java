@@ -49,7 +49,7 @@ public class RestRequests {
     }       
     
     private Builder CreateRequestBuilder(String url) {
-        return new Request.Builder().url(Config.Host + "/" + url).header("token", Config.Token);
+        return new Request.Builder().url(Config.Host + "/" + url).header("Authorization", Config.Token);
     }
     
     private Response SendRequest(Request request) throws IOException {
