@@ -57,11 +57,13 @@ public class OrdersBean
         if (viewedOrder == null)
             return;
         productsToAmount = new HashMap<>();
+        /*
         for (Map.Entry<Integer, Integer> entry : viewedOrder.ProductsToAmount.entrySet())
         {
             Product product = client.Get(productsAddsress + "/" + entry.getKey(), Product.class);
             productsToAmount.put(product.Title, entry.getValue());
         }
+        */
     }
     
     public Order[] getOrders() 

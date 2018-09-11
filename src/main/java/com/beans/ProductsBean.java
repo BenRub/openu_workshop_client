@@ -31,8 +31,8 @@ public class ProductsBean
         RestClient client = new RestClient();
         products = client.Get(categoryProductsAddsress, Product[].class);
         newProduct = new Product();
-        newProduct.setTitle("Title");
-        newProduct.setPicture("Picture");
+        //newProduct.setTitle("Title");
+        //newProduct.setPicture("Picture");
     }
     
     public Product[] getProducts() 

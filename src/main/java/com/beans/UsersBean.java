@@ -25,7 +25,7 @@ public class UsersBean extends CommonBean
         newAdmin = new User();
         newAdmin.setUsername("Admin");
         newAdmin.setAddress("Address");
-        newAdmin.setPhone("Phone");
+        //newAdmin.setPhone("Phone");
     }
     
     public User[] getUsers() 
