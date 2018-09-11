@@ -11,6 +11,5 @@ com\entities\Category.class
 com\Util\RestClient.class
 com\mycompany\openu_workshop_client\Config.class
 com\beans\ProductsBean.class
-com\beans\ProductWithIdBean.class
 com\entities\ProductAndAmount.class
 com\beans\CommonBean.class

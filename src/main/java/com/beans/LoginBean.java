@@ -1,45 +1,53 @@
 package com.beans;
-
-import com.api.CategoriesApi;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.api.UsersApi;
+import com.entities.LoginInfo;
+import com.entities.LoginResult;
+import com.entities.User;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @SessionScoped
-public class LoginBean 
+public class LoginBean extends CommonBean
 {
-    private String UserToken;
-    
-    private String username;
-    
-    private String password;
+    private final LoginInfo loginInfo;
+    private final UsersApi usersApi;
+    private User loggedUser;
+    private LoginResult loginResult;
+    private String loginError;
     
     public LoginBean() 
     {
-        username = "fd";
+        loginInfo = new LoginInfo();
+        usersApi = new UsersApi();
+        loginError = "";
     }
 
-    public String getUsername() 
+    public LoginInfo getLoginInfo() 
     {
-        return username;
+        return loginInfo;
+    }
+    
+    public String getToken() {
+        return loginResult.value;
     }
 
-    public void setUsername(String username) 
+    public String getLoginError() 
     {
-        this.username = username;
+        return loginError;
     }
-
-    public String getPassword() 
-    {
-        return password;
-    }
-
-    public void setPassword(String password) 
-    {
-        this.password = password;
+    
+    public void Login() {
+        LoginResult result = usersApi.AdminSignIn(loginInfo);
+        if (result != null) {
+            loginResult = result;
+            loggedUser = usersApi.Get(result.userId);
+            Reload("/");
+        }
+        else {
+            loginError = "Couldn't sign in";
+        }
     }
   
 }

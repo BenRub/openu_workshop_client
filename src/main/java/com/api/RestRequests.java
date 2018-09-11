@@ -23,10 +23,16 @@ public class RestRequests {
         return deserializedValue;
     }  
     
-    public void Post(String url, Object content) throws IOException {
+    public Response Post(String url, Object content) throws IOException {
         Request request = CreateRequestBuilder(url).post(GetRequestBody(content)).build();
-        SendRequest(request);
-    }  
+        return SendRequest(request);
+    } 
+    
+    public <T extends Object> T PostWithAnswer(String url, Object content, Class<T> valueType) throws IOException {
+        Response response = Post(url, content);
+        T deserializedValue = DeserializeBody(response.body().string(), valueType);
+        return deserializedValue;        
+    }     
     
     public void Put(String url, Object content) throws IOException {
         Request request = CreateRequestBuilder(url).put(GetRequestBody(content)).build();
