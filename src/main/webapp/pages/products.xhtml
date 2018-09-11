@@ -10,26 +10,15 @@
                     
                     <div class="box">
                         <h:form>
-                        <input type="hidden" name="category" value="#{param.category}" />
-                        
-                        <table>
-                            <tr>
-                                <td>Add: </td>
-                                <td><h:inputText value="#{productsBean.newProduct.title}" required="true" requiredMessage="title" /></td>
-                                <td><h:inputText value="#{productsBean.newProduct.picture}" required="true" requiredMessage="picture" /></td>
-                                <td>
-                                    <h:commandButton value="Add" action="#{productsBean.add()}" />
-                                </td>
-                            </tr>
-                        </table>
-                        
+                        <input type="hidden" name="category" value="#{param.category}" />                   
                         
                         <table class="cool_table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>Title</th>
-                                    <th>Picture</th>
+                                    <th>Name</th>
+                                    <th>Vendor</th>
+                                    <th>Category</th>
                                     <th>Update</th>
                                 </tr>                            
                             </thead>
@@ -37,14 +26,11 @@
                                 <ui:repeat value="#{productsBean.products}" var="product">
                                     <tr>
                                         <td>#{product.id}</td>
+                                        <td>#{product.name} </td>
+                                        <td>#{product.vendor}</td>
+                                        <td>#{product.category}</td>
                                         <td>
-                                            <h:inputText value="#{product.title}" required="true" requiredMessage="required" />
-                                        </td>
-                                        <td>
-                                            <h:inputText value="#{product.picture}" required="true" requiredMessage="required" />
-                                        </td>
-                                        <td>
-                                            <h:commandButton value="Update" action="#{productsBean.update(product)}" />
+                                           to be 
                                         </td>
                                     </tr>
                                 </ui:repeat>

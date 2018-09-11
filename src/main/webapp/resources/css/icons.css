@@ -2,6 +2,10 @@
     background: url("#{resource['img/productsIcon.png']}") no-repeat;
 }
 
+.categoriesIcon {
+    background: url("#{resource['img/categoriesIcon.png']}") no-repeat;
+}
+
 .ordersIcon {
     background: url("#{resource['img/ordersIcon.png']}") no-repeat;
 }

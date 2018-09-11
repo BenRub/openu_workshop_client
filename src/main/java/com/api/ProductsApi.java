@@ -9,10 +9,12 @@ public class ProductsApi extends BaseApi {
     }
     
     public Product[] GetAll(String category) {
+        Product[] products = new Product[] {};
         try {
-            return requests.Get(url + "?category=" + category, Product[].class);
+            String urlPostFix = category == null ? "" : "?category=" + category;
+            products = requests.Get(url + urlPostFix, Product[].class);
         } finally {
-            return new Product[] {};
+            return products;
         }        
     }
     

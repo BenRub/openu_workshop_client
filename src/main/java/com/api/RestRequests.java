@@ -19,8 +19,8 @@ public class RestRequests {
     public <T extends Object> T Get(String url, Class<T> valueType) throws IOException {      
         Request request = CreateRequestBuilder(url).build();   
         Response response = SendRequest(request);
-        //String body = ExtractBody(response);
-        return DeserializeBody(response.body().string(), valueType);
+        T deserializedValue = DeserializeBody(response.body().string(), valueType);
+        return deserializedValue;
     }  
     
     public void Post(String url, Object content) throws IOException {
@@ -65,7 +65,8 @@ public class RestRequests {
     
     private <T extends Object> T DeserializeBody(String body, Class<T> valueType) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(body, valueType);         
+        T deserializedValue = mapper.readValue(body, valueType);
+        return deserializedValue;         
     }
     
     private String SerializeBody(Object content) throws IOException {
