@@ -1,26 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.entities;
-
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- *
- * @author ben
- */
-public class Order {
-    public int Id; 
-    public int UserId;
-    public Map<Integer, Integer> ProductsToAmount;
-    public boolean Delivered;
+public class Order extends EntityWithId {
     
-    public int getId() { return Id; }
+    public int userId; 
+    public int getUserId() { return userId; } 
     
-    public int getUserId() { return UserId; }
+    public long timestamp; 
+    public long getTimestamp() { return timestamp; }   
     
-    public boolean getDelivered() { return Delivered; } 
+    public String status; 
+    public String getStatus() { return status; }     
+    public void setStatus(String status) { this.status = status; }  
+    
+    public ProductAndAmount[] products; 
+    public ProductAndAmount[] getProducts() { return products; }   
+    
 }

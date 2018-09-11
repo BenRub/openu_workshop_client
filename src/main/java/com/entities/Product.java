@@ -9,16 +9,32 @@ package com.entities;
  *
  * @author ben
  */
-public class Product {
-    public int Id; 
-    public String Title; 
-    public String Picture;  
+public class Product extends EntityWithId {
+ 
+    public String name; 
+    public String getName() { return name; }     
+    public void setName(String name) { this.name = name; } 
+
+    public String category; 
+    public String getCategory() { return category; } 
     
-    public int getId() { return Id; }
+    public String vendor; 
+    public String getVendor() { return vendor; }     
+    public void setVendor(String vendor) { this.vendor = vendor; }  
     
-    public String getTitle() { return Title; }      
-    public void setTitle(String title) { Title = title; } 
+    public String description; 
+    public String getDescription() { return description; }     
+    public void setDescription(String description) { this.description = description; }
+
+    public double price; 
+    public double getPrice() { return price; }     
+    public void setPrice(double price) { this.price = price; }  
     
-    public String getPicture() { return Picture; }      
-    public void setPicture(String picture) { Picture = picture; }     
+    public int unitsInStock; 
+    public int getUnitsInStock() { return unitsInStock; }     
+    public void setUnitsInStock(int unitsInStock) { this.unitsInStock = unitsInStock; }  
+    
+    public int discount; 
+    public int getDiscount() { return discount; }     
+    public void setDiscount(int discount) { this.discount = discount; }      
 }
