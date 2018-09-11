@@ -46,15 +46,6 @@ public class UsersService extends BaseService {
         } catch (IOException ex) {
             return false;
         }
-    }
-    
-    public boolean Update(Product product) {
-        try {
-            requests.Put(url + "/" + product.getId(), product);
-            return true;
-        } catch (IOException ex) {
-            return false;
-        }
     }  
     
 }
