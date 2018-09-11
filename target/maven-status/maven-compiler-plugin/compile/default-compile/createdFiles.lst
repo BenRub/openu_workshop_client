@@ -1,0 +1,16 @@
+com\entities\Product.class
+com\beans\CategoriesBean.class
+com\entities\User.class
+com\api\CategoriesApi.class
+com\beans\OrdersBean.class
+com\beans\LoginBean.class
+com\entities\EntityWithId.class
+com\beans\UsersBean.class
+com\entities\Order.class
+com\entities\Category.class
+com\Util\RestClient.class
+com\mycompany\openu_workshop_client\Config.class
+com\beans\ProductsBean.class
+com\beans\ProductWithIdBean.class
+com\entities\ProductAndAmount.class
+com\beans\CommonBean.class
