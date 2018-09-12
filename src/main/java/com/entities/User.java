@@ -1,5 +1,8 @@
 package com.entities;
-public class User extends EntityWithId {
+
+import java.io.Serializable;
+
+public class User extends EntityWithId implements Serializable {
     
     public String username; 
     public String getUsername() { return username; }     

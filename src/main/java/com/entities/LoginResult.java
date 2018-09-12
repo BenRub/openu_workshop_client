@@ -1,6 +1,8 @@
 package com.entities;
 
-public class LoginResult {
+import java.io.Serializable;
+
+public class LoginResult implements Serializable {
     public int userId;
     public String value;
 }

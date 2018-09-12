@@ -1,6 +1,8 @@
 package com.entities;
 
-public class LoginInfo {
+import java.io.Serializable;
+
+public class LoginInfo implements Serializable {
     public String username; 
     public String getUsername() { return username; }     
     public void setUsername(String username) { this.username = username; }  
