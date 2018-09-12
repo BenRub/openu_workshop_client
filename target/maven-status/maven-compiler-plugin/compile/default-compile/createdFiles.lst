@@ -18,9 +18,9 @@ com\entities\LoginResult.class
 com\beans\UserSingleBean.class
 com\filters\LoginFilter.class
 com\services\OrdersService.class
-com\services\RestRequests.class
 com\entities\EntityWithId.class
 com\entities\Order.class
 com\entities\Category.class
+com\Util\RestRequests.class
 com\beans\ProductsBean.class
 com\entities\ProductAndAmount.class

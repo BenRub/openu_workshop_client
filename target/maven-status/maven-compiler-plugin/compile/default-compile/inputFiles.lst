@@ -4,6 +4,7 @@ D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\serv
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\EntityWithId.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\services\ProductsService.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\beans\ProductSingleBean.java
+D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\Util\RestRequests.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\beans\UsersBean.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\OrderStatus.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\User.java
@@ -12,7 +13,6 @@ D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\bean
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\LoginInfo.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\Order.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\Product.java
-D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\services\RestRequests.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\entities\LoginResult.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\beans\OrderSingleBean.java
 D:\Development\Workspace\Git\Github\openu_workshop_client\src\main\java\com\beans\CommonBean.java

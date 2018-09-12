@@ -2,8 +2,6 @@ package com.services;
 import com.entities.Order;
 import com.entities.OrderStatus;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class OrdersService extends BaseService {
     

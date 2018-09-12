@@ -1,5 +1,7 @@
 package com.services;
 
+import com.Util.RestRequests;
+
 public abstract class BaseService {
    protected String url;
    protected RestRequests requests;
