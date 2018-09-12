@@ -5,6 +5,7 @@ import com.mycompany.openu_workshop_client.Config;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -13,7 +14,7 @@ import okhttp3.Request.Builder;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class RestRequests {
+public class RestRequests implements Serializable {
         
     public <T extends Object> T Get(String url, Class<T> valueType) throws IOException {      
         Request request = CreateRequestBuilder(url).build();   

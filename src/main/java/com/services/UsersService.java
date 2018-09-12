@@ -3,8 +3,9 @@ import com.entities.LoginInfo;
 import com.entities.LoginResult;
 import com.entities.User;
 import java.io.IOException;
+import java.io.Serializable;
 
-public class UsersService extends BaseService {
+public class UsersService extends BaseService implements Serializable {
     
     public UsersService() {
         super("users");
