@@ -30,6 +30,7 @@
                                     <th>Name</th>
                                     <th>Vendor</th>
                                     <th>Category</th>
+                                    <th>Image</th>
                                     <th>Update</th>
                                 </tr>                            
                             </thead>
@@ -40,6 +41,11 @@
                                         <td>#{product.name} </td>
                                         <td>#{product.vendor}</td>
                                         <td>#{product.category}</td>
+                                        <td style="text-align: center;">
+                                            <a target="_blank" href="#{product.imageUrl}">
+                                                <img src="#{product.imageUrl}" width="50" height="50" />
+                                            </a>
+                                        </td>
                                         <td> 
                                             <h:form rendered="#{param.category eq null}">
                                                <h:link value="Update" outcome="/pages/product_single?faces-redirect=true">
